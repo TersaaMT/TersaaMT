@@ -1,16 +1,15 @@
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 from telegram.ext import Application, CommandHandler, ContextTypes
+import asyncio
 
 BOT_TOKEN = "7432898854:AAFUF-gDgNBrAwtcDPXQtBnMWxEUTA0GEm0"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
-        [
-            InlineKeyboardButton(
-                text="🚀 Открыть WebApp",
-                web_app=WebAppInfo(url="https://nextjs-boilerplate-eta-flax-pi5wkfogwq.vercel.app")
-            )
-        ]
+        [InlineKeyboardButton(
+            text="🚀 Открыть WebApp",
+            web_app=WebAppInfo(url="https://v0-new-project-btunvqms0pv.vercel.app")
+        )]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text(
@@ -20,4 +19,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 app = Application.builder().token(BOT_TOKEN).build()
 app.add_handler(CommandHandler("start", start))
-app.run_polling()
+
+# ВАЖНО: запуск асинхронно
+if __name__ == "__main__":
+    asyncio.run(app.run_polling())
