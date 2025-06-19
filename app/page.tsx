@@ -17,7 +17,7 @@ export default function Home() {
           className="bg-purple-600 hover:bg-purple-700 rounded-xl p-4 text-lg font-medium shadow"
           onClick={() => router.push('/strategies/ma14')}
         >
-          🧮 Стратегия MA 14
+          📘 Стратегия MA 14
         </button>
 
         <button
@@ -31,12 +31,12 @@ export default function Home() {
           className="bg-blue-600 hover:bg-blue-700 rounded-xl p-4 text-lg font-medium shadow"
           onClick={() => router.push('/strategies/channel')}
         >
-          🧭 Трендовый канал
+          📊 Трендовый канал
         </button>
 
         <button
-          className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl font-medium shadow"
-          onClick={() => router.push('/strategies/ma_guard_bot')}
+          className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-2xl shadow"
+          onClick={() => router.push('/strategies/ma-guard-bot')}
         >
           🛡️ MA Guard
         </button>
@@ -44,4 +44,5 @@ export default function Home() {
     </main>
   );
 }
+
 
