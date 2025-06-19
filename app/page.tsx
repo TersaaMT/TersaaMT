@@ -15,19 +15,19 @@ export default function Home() {
       <div className="grid gap-4 w-full max-w-xs">
         <button
           className="bg-purple-600 hover:bg-purple-700 rounded-xl p-4 text-lg font-medium shadow"
-          onClick={() => router.push('/ma14')}
+          onClick={() => router.push('/strategies/ma14')}
         >
           🧮 Стратегия MA 14
         </button>
         <button
           className="bg-green-600 hover:bg-green-700 rounded-xl p-4 text-lg font-medium shadow"
-          onClick={() => router.push('/trend-line')}
+          onClick={() => router.push('/strategies/trend-line')}
         >
           📈 Трендовая линия
         </button>
         <button
           className="bg-blue-600 hover:bg-blue-700 rounded-xl p-4 text-lg font-medium shadow"
-          onClick={() => router.push('/channel')}
+          onClick={() => router.push('/strategies/channel')}
         >
           🧭 Трендовый канал
         </button>
