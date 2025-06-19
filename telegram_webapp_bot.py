@@ -9,7 +9,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [
             InlineKeyboardButton(
                 text="🚀 Открыть WebApp",
-                web_app=WebAppInfo(url="https://v0-new-project-btunvqms0pv-2iw96dbsx-tersaas-projects.vercel.app")
+                web_app=WebAppInfo(url="https://v0-new-project-btunvqms0pv.vercel.app")
             )
         ]
     ]
