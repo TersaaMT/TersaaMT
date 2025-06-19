@@ -19,19 +19,29 @@ export default function Home() {
         >
           🧮 Стратегия MA 14
         </button>
+
         <button
           className="bg-green-600 hover:bg-green-700 rounded-xl p-4 text-lg font-medium shadow"
           onClick={() => router.push('/strategies/trend-line')}
         >
-          📈 Трендовая линия
+          🧾 Трендовая линия
         </button>
+
         <button
           className="bg-blue-600 hover:bg-blue-700 rounded-xl p-4 text-lg font-medium shadow"
           onClick={() => router.push('/strategies/channel')}
         >
           🧭 Трендовый канал
         </button>
+
+        <button
+          className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl font-medium shadow"
+          onClick={() => router.push('/strategies/ma_guard_bot')}
+        >
+          🛡️ MA Guard
+        </button>
       </div>
     </main>
   );
 }
+
