@@ -1,16 +1,18 @@
 'use client';
 
 import { useState } from 'react';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Settings } from 'lucide-react';
+import BottomNavFix from './BottomNavFix';
 
 export default function HomePage() {
   const [chartType, setChartType] = useState('candles');
   const [language, setLanguage] = useState('ru');
 
   return (
-    <main className="p-4 space-y-4">
+    <main className="p-4 space-y-4 pb-24">
       <div className="flex justify-between items-center">
         <h1 className="text-xl font-bold">TersaaMT</h1>
         <Settings className="cursor-pointer" onClick={() => alert('Окно настроек откроется здесь')} />
@@ -31,7 +33,7 @@ export default function HomePage() {
               <p>🟣 Тренд — «Всё гениальное — просто»</p>
               <p>🟢 Трендовая линия — «Следуй за направлением»</p>
               <p>🔵 Канал — «Границы тоже говорят»</p>
-              <p className="text-sm text-gray-500">(Видеоинструкции будут добавлены)</p>
+              <p className="text-sm text-gray-500">(Видеоуроки будут добавлены)</p>
             </CardContent>
           </Card>
         </TabsContent>
@@ -42,15 +44,15 @@ export default function HomePage() {
             <CardContent className="p-4 space-y-4">
               <div>
                 <h2 className="font-semibold">🟣 Тренд</h2>
-                <p>Всё гениальное — просто</p>
+                <p>«Всё гениальное — просто»</p>
               </div>
               <div>
                 <h2 className="font-semibold">🟢 Трендовая линия</h2>
-                <p>Следуй за направлением</p>
+                <p>«Следуй за направлением»</p>
               </div>
               <div>
                 <h2 className="font-semibold">🔵 Канал</h2>
-                <p>Границы тоже говорят</p>
+                <p>«Границы тоже говорят»</p>
               </div>
             </CardContent>
           </Card>
@@ -60,7 +62,7 @@ export default function HomePage() {
         <TabsContent value="news">
           <Card>
             <CardContent className="p-4">
-              <p>Здесь будут новости, новые монеты и статистика по стратегиям — coming soon.</p>
+              <p>Новости, новые монеты, статистика — coming soon.</p>
             </CardContent>
           </Card>
         </TabsContent>
@@ -68,15 +70,14 @@ export default function HomePage() {
         {/* Поддержка */}
         <TabsContent value="support">
           <Card>
-            <CardContent className="p-4 space-y-2">
-              <p>💬 Онлайн-чат с поддержкой</p>
-              <p>📄 Раздел FAQ</p>
-              <p>📘 Инструкции по использованию платформы</p>
+            <CardContent className="p-4">
+              <p>Скоро появятся видеоуроки и техподдержка.</p>
             </CardContent>
           </Card>
         </TabsContent>
       </Tabs>
 
+      {/* Настройки */}
       <div className="flex gap-4 justify-between">
         <div>
           <label className="text-sm font-medium">Тип графика:</label>
@@ -99,12 +100,13 @@ export default function HomePage() {
           >
             <option value="ru">Русский</option>
             <option value="en">English</option>
-            <option value="uz">O'zbekcha</option>
+            <option value="uz">O‘zbekcha</option>
           </select>
         </div>
       </div>
+
+      {/* Нижнее меню */}
+      <BottomNavFix />
     </main>
   );
 }
-
-
