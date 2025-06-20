@@ -8,7 +8,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [InlineKeyboardButton(
             text="🚀 Открыть WebApp",
-           web_app=WebAppInfo(url="https://nextjs-boilerplate-eta-flax-pi5wkfogwq.vercel.app")
+        web_app=WebAppInfo(url="https://v0-new-project-btunvqms0pv.vercel.app")
         )]
     ]
 

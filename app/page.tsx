@@ -1,65 +1,77 @@
-// app/page.tsx
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Settings } from "lucide-react";
+import { useState } from 'react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Card, CardContent } from '@/components/ui/card';
+import { Settings } from 'lucide-react';
 
 export default function HomePage() {
-  const [chartType, setChartType] = useState("candles");
-  const [language, setLanguage] = useState("ru");
+  const [chartType, setChartType] = useState('candles');
+  const [language, setLanguage] = useState('ru');
 
   return (
     <main className="p-4 space-y-4">
       <div className="flex justify-between items-center">
         <h1 className="text-xl font-bold">TersaaMT</h1>
-        <Settings className="cursor-pointer" onClick={() => alert("Тут будет окно настроек")} />
+        <Settings className="cursor-pointer" onClick={() => alert('Окно настроек откроется здесь')} />
       </div>
 
-      <Tabs defaultValue="strategies" className="w-full">
+      <Tabs defaultValue="lessons" className="w-full">
         <TabsList className="grid grid-cols-4">
-          <TabsTrigger value="strategies">Стратегии</TabsTrigger>
-          <TabsTrigger value="types">Платные / Бесплатные</TabsTrigger>
-          <TabsTrigger value="news">Новости</TabsTrigger>
-          <TabsTrigger value="help">Поддержка</TabsTrigger>
+          <TabsTrigger value="lessons">🧑‍🏫 Уроки</TabsTrigger>
+          <TabsTrigger value="strategies">📊 Стратегии</TabsTrigger>
+          <TabsTrigger value="news">📰 Новости</TabsTrigger>
+          <TabsTrigger value="support">🎧 Поддержка</TabsTrigger>
         </TabsList>
 
-        {/* Вкладка 1: Все стратегии */}
-        <TabsContent value="strategies">
+        {/* Уроки */}
+        <TabsContent value="lessons">
           <Card>
             <CardContent className="p-4 space-y-2">
-              <p>MA 14 — «Всё гениальное — просто»</p>
-              <p>Трендовая линия — «Следуй за направлением»</p>
-              <p>Канал — «Границы тоже говорят»</p>
+              <p>🟣 Тренд — «Всё гениальное — просто»</p>
+              <p>🟢 Трендовая линия — «Следуй за направлением»</p>
+              <p>🔵 Канал — «Границы тоже говорят»</p>
+              <p className="text-sm text-gray-500">(Видеоинструкции будут добавлены)</p>
             </CardContent>
           </Card>
         </TabsContent>
 
-        {/* Вкладка 2: Платные / Бесплатные */}
-        <TabsContent value="types">
+        {/* Стратегии */}
+        <TabsContent value="strategies">
           <Card>
-            <CardContent className="p-4">
-              <p>Тут позже будут разделения: бесплатные и платные.</p>
+            <CardContent className="p-4 space-y-4">
+              <div>
+                <h2 className="font-semibold">🟣 Тренд</h2>
+                <p>Всё гениальное — просто</p>
+              </div>
+              <div>
+                <h2 className="font-semibold">🟢 Трендовая линия</h2>
+                <p>Следуй за направлением</p>
+              </div>
+              <div>
+                <h2 className="font-semibold">🔵 Канал</h2>
+                <p>Границы тоже говорят</p>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
 
-        {/* Вкладка 3: Новости и коины */}
+        {/* Новости */}
         <TabsContent value="news">
           <Card>
             <CardContent className="p-4">
-              <p>Новости, новые монеты, статистика — coming soon.</p>
+              <p>Здесь будут новости, новые монеты и статистика по стратегиям — coming soon.</p>
             </CardContent>
           </Card>
         </TabsContent>
 
-        {/* Вкладка 4: Поддержка */}
-        <TabsContent value="help">
+        {/* Поддержка */}
+        <TabsContent value="support">
           <Card>
-            <CardContent className="p-4">
-              <p>Скоро появятся видеоуроки и техподдержка.</p>
+            <CardContent className="p-4 space-y-2">
+              <p>💬 Онлайн-чат с поддержкой</p>
+              <p>📄 Раздел FAQ</p>
+              <p>📘 Инструкции по использованию платформы</p>
             </CardContent>
           </Card>
         </TabsContent>
@@ -94,6 +106,5 @@ export default function HomePage() {
     </main>
   );
 }
-
 
 
