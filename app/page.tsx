@@ -1,49 +1,99 @@
-'use client';
+// app/page.tsx
+"use client";
 
-import { useRouter } from 'next/navigation';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Settings } from "lucide-react";
 
-export default function Home() {
-  const router = useRouter();
+export default function HomePage() {
+  const [chartType, setChartType] = useState("candles");
+  const [language, setLanguage] = useState("ru");
 
   return (
-    <main className="flex flex-col items-center justify-center bg-black text-white px-4 pb-24 pt-12">
-      <h1 className="text-2xl font-bold mb-2">
-        Добро пожаловать в <span className="text-purple-400">TersaaMT</span>
-      </h1>
-      <p className="mb-6 text-gray-400">Выбери стратегию 👇</p>
+    <main className="p-4 space-y-4">
+      <div className="flex justify-between items-center">
+        <h1 className="text-xl font-bold">TersaaMT</h1>
+        <Settings className="cursor-pointer" onClick={() => alert("Тут будет окно настроек")} />
+      </div>
 
-      <div className="grid gap-4 w-full max-w-xs">
-        <button
-          className="bg-purple-600 hover:bg-purple-700 rounded-xl p-4 text-lg font-medium shadow"
-          onClick={() => router.push('/strategies/ma14')}
-        >
-          📘 Стратегия MA 14
-        </button>
+      <Tabs defaultValue="strategies" className="w-full">
+        <TabsList className="grid grid-cols-4">
+          <TabsTrigger value="strategies">Стратегии</TabsTrigger>
+          <TabsTrigger value="types">Платные / Бесплатные</TabsTrigger>
+          <TabsTrigger value="news">Новости</TabsTrigger>
+          <TabsTrigger value="help">Поддержка</TabsTrigger>
+        </TabsList>
 
-        <button
-          className="bg-green-600 hover:bg-green-700 rounded-xl p-4 text-lg font-medium shadow"
-          onClick={() => router.push('/strategies/trend-line')}
-        >
-          🧾 Трендовая линия
-        </button>
+        {/* Вкладка 1: Все стратегии */}
+        <TabsContent value="strategies">
+          <Card>
+            <CardContent className="p-4 space-y-2">
+              <p>MA 14 — «Всё гениальное — просто»</p>
+              <p>Трендовая линия — «Следуй за направлением»</p>
+              <p>Канал — «Границы тоже говорят»</p>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-        <button
-          className="bg-blue-600 hover:bg-blue-700 rounded-xl p-4 text-lg font-medium shadow"
-          onClick={() => router.push('/strategies/channel')}
-        >
-          📊 Трендовый канал
-        </button>
+        {/* Вкладка 2: Платные / Бесплатные */}
+        <TabsContent value="types">
+          <Card>
+            <CardContent className="p-4">
+              <p>Тут позже будут разделения: бесплатные и платные.</p>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-        <button
-          className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-2xl shadow"
-          onClick={() => router.push('/strategies/ma-guard-bot')}
+        {/* Вкладка 3: Новости и коины */}
+        <TabsContent value="news">
+          <Card>
+            <CardContent className="p-4">
+              <p>Новости, новые монеты, статистика — coming soon.</p>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-        >
-          🛡️ MA Guard
-        </button>
+        {/* Вкладка 4: Поддержка */}
+        <TabsContent value="help">
+          <Card>
+            <CardContent className="p-4">
+              <p>Скоро появятся видеоуроки и техподдержка.</p>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+
+      <div className="flex gap-4 justify-between">
+        <div>
+          <label className="text-sm font-medium">Тип графика:</label>
+          <select
+            className="ml-2 border rounded p-1"
+            value={chartType}
+            onChange={(e) => setChartType(e.target.value)}
+          >
+            <option value="candles">Японские свечи</option>
+            <option value="bars">Бары</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="text-sm font-medium">Язык:</label>
+          <select
+            className="ml-2 border rounded p-1"
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+          >
+            <option value="ru">Русский</option>
+            <option value="en">English</option>
+            <option value="uz">O'zbekcha</option>
+          </select>
+        </div>
       </div>
     </main>
   );
 }
+
 
 
