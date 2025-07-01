@@ -8,7 +8,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [InlineKeyboardButton(
             text="🚀 Открыть WebApp",
-        web_app=WebAppInfo(url="https://v0-new-project-btunvqms0pv.vercel.app")
+      web_app=WebAppInfo(url="https://v0-new-project-btunvgms0pv.vercel.app")
         )]
     ]
 
@@ -24,3 +24,5 @@ app.add_handler(CommandHandler("start", start))
 # Запуск асинхронно
 if __name__ == "__main__":
     asyncio.run(app.run_polling())
+
+ 
